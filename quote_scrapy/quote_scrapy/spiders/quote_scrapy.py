@@ -1,4 +1,9 @@
 import scrapy
+import logging
+
+logger = logging.getLogger()
+
+
 
 class QuoteSpider(scrapy.Spider):
     name = "Quote"
@@ -6,6 +11,7 @@ class QuoteSpider(scrapy.Spider):
 
     def parse(self, response):
         for quotes in response.css('div.quote'):
+            logger.info(f"quote {quotes}")
             author_url = quotes.css('span a::attr(href)').get()
             full_author_url = response.urljoin(author_url) if author_url else None
 
