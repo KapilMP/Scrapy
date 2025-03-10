@@ -1,2 +1,2 @@
 # Scrapy
-This is the repo for web crawling
+This repo contains code for web crawling using scrapy.
